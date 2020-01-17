@@ -61,4 +61,4 @@ Download the pretrained model and put them into *tools/snapshot* directory.
 - `hp_search:`There are different hyper paramters for different datasets. (eg:`--hp_search OTB/LaSOT/VOT2019/GOT10k/UAV123`) 
 
 **5. Acknowledgement**  
-The SiamCAR was developed on the basis of [pysot](https://github.com/STVIR/pysot).
+The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributers.
