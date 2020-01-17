@@ -60,5 +60,5 @@ Download the pretrained model and put them into *tools/snapshot* directory.
 (eg:`--snapshot ./snapshot/general_model.pth` or `--snapshot ./snapshot/LaSOT_model.pth` or `--snapshot ./snapshot/got10k_model.pth`)
 - `hp_search:`There are different hyper paramters for different datasets. (eg:`--hp_search OTB/LaSOT/VOT2019/GOT10k/UAV123`) 
 
-**5. Acknowledgement**  
-The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributers.
+**6. Acknowledgement**  
+The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributors.
