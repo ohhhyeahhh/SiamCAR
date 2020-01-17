@@ -42,8 +42,10 @@ This code has benn test on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1, CUDA 9.0.
 Put the [testing videos or picture sequences](https://pan.baidu.com/s/1qGlu1lpAEpQWGJ_bCkCwMA) into *testing_dataset* directory. During the testing, mark the tracking target in the first frame with mouse.
 
 **4. Tracker**  
-Download the pretrained model and put them into *tools/snapshot* directory.
-
+Download the pretrained model and put them into *tools/snapshot* directory.  
+[general_model](https://pan.baidu.com/s/12u8YzjoAxugFTtLTk3S0JA)  
+[got10k_model](https://pan.baidu.com/s/1HfsY335PmtMHnac_Q9jXOg)  
+[LaSOT_model](https://pan.baidu.com/s/19jUavaAM47ZcgckmSv9c_Q)  
 **5. Testing demo**
 > cd SiamCAR/tools
 > python demo.py  \  
