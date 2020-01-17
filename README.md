@@ -44,8 +44,9 @@ Put the [testing videos or picture sequences](https://pan.baidu.com/s/1qGlu1lpAE
 **4. Tracker**  
 Download the pretrained model and put them into *tools/snapshot* directory.  
 [general_model](https://pan.baidu.com/s/12u8YzjoAxugFTtLTk3S0JA)  
-[got10k_model](https://pan.baidu.com/s/1HfsY335PmtMHnac_Q9jXOg)  
-[LaSOT_model](https://pan.baidu.com/s/19jUavaAM47ZcgckmSv9c_Q)  
+[got10k_model](https://pan.baidu.com/s/19jUavaAM47ZcgckmSv9c_Q)  
+[LaSOT_model](https://pan.baidu.com/s/1HfsY335PmtMHnac_Q9jXOg)  
+
 **5. Testing demo**
 > cd SiamCAR/tools
 > python demo.py  \  
