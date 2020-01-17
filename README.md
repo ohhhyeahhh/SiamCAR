@@ -39,7 +39,7 @@
 This code has benn test on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1, CUDA 9.0.
 
 **3. Datesets**  
-Put the testing videos or picture sequences into *testing_dataset* directory. During the testing, mark the tracking target in the first frame with mouse.
+Put the [testing videos or picture sequences]{https://pan.baidu.com/s/1qGlu1lpAEpQWGJ_bCkCwMA} into *testing_dataset* directory. During the testing, mark the tracking target in the first frame with mouse.
 
 **4. Tracker**  
 Download the pretrained model and put them into *tools/snapshot* directory.
