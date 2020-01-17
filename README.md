@@ -36,7 +36,7 @@
 
 
 **2. Environment setup**  
-This code has been tested on Ubuntu 16.04 & Windows 10, Python 3.6, Pytorch 0.4.1 & 1.2.   
+This code has been tested on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1, CUDA 9.0.   
 
 **3. Test date**  
 Put the [testing videos or picture sequences](https://pan.baidu.com/s/1qGlu1lpAEpQWGJ_bCkCwMA) into *testing_dataset* directory. During the testing, you need to mark the tracking target in the first frame with a bounding box.
@@ -62,3 +62,13 @@ Download the pretrained model and put them into *tools/snapshot* directory.
 
 **6. Acknowledgement**  
 The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributors.
+
+**7. Cite**
+
+If you use SiamCAR in your work please cite our paper:
+   @article{guo2019siamcar,
+     title={SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},
+     author={Dongyan Guo and Jun Wang and Ying Cui and Zhenhua Wang and Shengyong Chen},
+     journal = {arXiv},
+     year={2019}
+   }
