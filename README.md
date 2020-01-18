@@ -60,6 +60,9 @@ Download the pretrained model and put them into *tools/snapshot* directory.
 (eg:`--snapshot ./snapshot/general_model.pth` or `--snapshot ./snapshot/LaSOT_model.pth` or `--snapshot ./snapshot/got10k_model.pth`)
 - `hp_search:`There are different hyper paramters for different datasets. (eg:`--hp_search OTB/LaSOT/VOT2019/GOT10k/UAV123`) 
 
+**7. Tracking result**
+You can download the tracking result in GOT10K, LaSOT, OTB and UAV [here](https://pan.baidu.com/s/1H6SxQxW320gsm4PmzAExlQ).  
+
 **6. Acknowledgement**  
 The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributors.
 
