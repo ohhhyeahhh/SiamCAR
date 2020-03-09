@@ -1,5 +1,4 @@
 # SiameseCAR demo
-We will release the training code later.
 
 **1. Structure**  
 
@@ -38,7 +37,8 @@ We will release the training code later.
 
 
 **2. Environment setup**  
-This code has been tested on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1, CUDA 9.0.   
+This code has been tested on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1, CUDA 9.0.  
+We will release the training code later.
 
 **3. Test date**  
 Put the [testing videos or picture sequences](https://pan.baidu.com/s/1qGlu1lpAEpQWGJ_bCkCwMA) into *testing_dataset* directory. During the testing, you need to mark the tracking target in the first frame with a bounding box.
