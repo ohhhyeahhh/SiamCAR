@@ -1,4 +1,6 @@
 # SiameseCAR demo
+We will release the training code later.
+
 **1. Structure**  
 
     |-- siamcar  
