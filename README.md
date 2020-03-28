@@ -65,7 +65,7 @@ Download the pretrained model and put them into *tools/snapshot* directory.
 **6. Tracking result**
 You can download the tracking result in GOT10K, LaSOT, OTB and UAV [here](https://pan.baidu.com/s/1H6SxQxW320gsm4PmzAExlQ).  
 
-**7. Todo List
+**7. Todo List**
 - [x] upload the model
 - [ ] standardize the code
 - [ ] upload the training code
