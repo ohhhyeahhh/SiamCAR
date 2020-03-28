@@ -62,13 +62,19 @@ Download the pretrained model and put them into *tools/snapshot* directory.
 (eg:`--snapshot ./snapshot/general_model.pth` or `--snapshot ./snapshot/LaSOT_model.pth` or `--snapshot ./snapshot/got10k_model.pth`)
 - `hp_search:`There are different hyper paramters for different datasets. (eg:`--hp_search OTB/LaSOT/VOT2019/GOT10k/UAV123`) 
 
-**7. Tracking result**
+**6. Tracking result**
 You can download the tracking result in GOT10K, LaSOT, OTB and UAV [here](https://pan.baidu.com/s/1H6SxQxW320gsm4PmzAExlQ).  
 
-**6. Acknowledgement**  
+**7. Todo List
+- [x] upload the model
+- [ ] standardize the code
+- [ ] upload the training code
+- [ ] ...
+
+**8. Acknowledgement**  
 The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributors.
 
-**7. Cite**
+**9. Cite**
 
 If you use SiamCAR in your work please cite our paper:
 > @article{guo2019siamcar,  
