@@ -80,6 +80,6 @@ If you use SiamCAR in your work please cite our paper:
 > @article{guo2019siamcar,  
           title={SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},  
           author={Dongyan Guo and Jun Wang and Ying Cui and Zhenhua Wang and Shengyong Chen},  
-          journal = {arXiv},  
-          year={2019}  
+          booktitle={CVPR},  
+          year={2020}  
 }
