@@ -1,81 +1,67 @@
-# SiameseCAR demo
+# SiamCAR
 
-**1. Structure**  
+## 1. Environment setup
+This code has been tested on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1/1.2.0, CUDA 9.0.
+Please install related libraries before running this code: 
+```bash
+pip install -r requirements.txt
+```
 
-    |-- siamcar  
-    
-        |-- core
-           |-- config.py  
-           |-- xcoor.py  
-    
-        |-- model
-            |-- backbone.py
-            |-- head.py 
-            |-- neck.py  
-            |-- model_builder.py 
-            |-- loss_car.py 
-            |-- loss_cls.py 
-      
-        |-- tracker 
-            |-- base_tracker.py 
-            |-- siamcar_tracker.py 
-        
-        |-- utils
-            |-- car_utils.py
-            |-- iou_loss.py
-            |-- model_load.py  
-     
-        |-- config.yaml
-        
-    |-- testing_dataset 
-     
-        *put the test video in this file*
-     
-    |-- tools
-        |-- snapshot *put the pretrained model in this file*  
-        |-- demp.py
+## 2. Test
+Download the pretrained model:  
+[general_model](https://pan.baidu.com/s/1kIbKxCu1O3PXt9wQik4EVQ) code: xjpz  
+[got10k_model](https://pan.baidu.com/s/1KSVgaz5KYP2Ar2DptnfyGQ) code: p4zx  
+[LaSOT_model](https://pan.baidu.com/s/1g15wGSq-LoZUBxYQwXCP6w) code: 6wer  
+ and put them into `tools/snapshot` directory.
 
+Download testing datasets and put them into `test_dataset` directory. Jsons of commonly used datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1js0Qhykqqur7_lNRtle1tA#list/path=%2F). If you want to test the tracker on a new dataset, please refer to [pysot-toolkit](https://github.com/StrangerZhang/pysot-toolkit) to set test_dataset.
 
-**2. Environment setup**  
-This code has been tested on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1, CUDA 9.0.  
-We will release the training code later.
+```bash 
+python test.py                                \
+	--dataset UAV123                      \ # dataset_name
+	--snapshot snapshot/general_model.pth  # tracker_name
+```
+The testing result will be saved in the `results/dataset_name/tracker_name` directory.
 
-**3. Test date**  
-Put the [testing videos or picture sequences](https://pan.baidu.com/s/1qGlu1lpAEpQWGJ_bCkCwMA) into *testing_dataset* directory. During the testing, you need to mark the tracking target in the first frame with a bounding box.
+## 3. Train
 
-**4. Tracker**  
-Download the pretrained model and put them into *tools/snapshot* directory.  
-[general_model](https://pan.baidu.com/s/12u8YzjoAxugFTtLTk3S0JA)  
-[got10k_model](https://pan.baidu.com/s/19jUavaAM47ZcgckmSv9c_Q)  
-[LaSOT_model](https://pan.baidu.com/s/1HfsY335PmtMHnac_Q9jXOg)  
+### Prepare training datasets
 
-**5. Testing demo**
-> cd SiamCAR/tools
-> python demo.py  \  
-        --video <testing video>  
-        --snapshot <specified testing model>  
-        --hp_search <hp parameters>   
-        
-***Optional parameters:***  
-- `--video:`path of the testing video or picture sequences(eg:`--video testing_dataset/people.mp4` or `--video testing_dataset/Biker`)
-- `--snapshot:`path of the specified testing model. We provide three model for testing. The general model was trained in VID, YOUTUBEBB, COCO and DET. The LaSOT model was only trained in LaSOT training dataset, and the got10k model was only trained in GOT10K training dataset.
-(eg:`--snapshot ./snapshot/general_model.pth` or `--snapshot ./snapshot/LaSOT_model.pth` or `--snapshot ./snapshot/got10k_model.pth`)
-- `hp_search:`There are different hyper paramters for different datasets. (eg:`--hp_search OTB/LaSOT/VOT2019/GOT10k/UAV123`) 
+Download the datasets：
+* [VID](http://image-net.org/challenges/LSVRC/2017/)
+* [YOUTUBEBB](https://pan.baidu.com/s/1xvgzU0pjQXXgVeJnK7vHSg)( Link for cropped data, BaiduYun, extract code: 6dd5.)
+* [DET](http://image-net.org/challenges/LSVRC/2017/)
+* [COCO](http://cocodataset.org)
+* [GOT-10K](wangjun)
+* [LaSOT](wangjun)
 
-**6. Tracking result**
-You can download the tracking result in GOT10K, LaSOT, OTB and UAV [here](https://pan.baidu.com/s/1H6SxQxW320gsm4PmzAExlQ).  
+**Note:** `train_dataset/dataset_name/readme.md` has listed detailed operations about how to generate training datasets.
 
-**7. Todo List**
-- [x] upload the model
-- [ ] standardize the code
-- [ ] upload the training code
-- [ ] ...
+### Download pretrained backbones
+Different backbone architectures can be used for training, such as ResNet, AlexNet. Download pretrained backbones from [google drive](https://drive.google.com/drive/folders/1DuXVWVYIeynAcvt9uxtkuleV6bs6e3T9) or [BaiduYun](https://pan.baidu.com/s/1IfZoxZNynPdY2UJ_--ZG2w) (code: 7n7d) and put them into `pretrained_models` directory.
 
-**8. Acknowledgement**  
+### Train a model
+To train the SiamCAR model, run `train.py` with the desired configs:
+
+```bash
+cd tools
+python train.py
+```
+
+## 4. Evaluation
+We provide the tracking [results](https://pan.baidu.com/s/1H6SxQxW320gsm4PmzAExlQ) of GOT10K, LaSOT, OTB and UAV. If you want to evaluate the tracker, please put those results into  `results` directory.
+```
+python eval.py 	                          \
+	--tracker_path ./results          \ # result path
+	--dataset UAV123                  \ # dataset_name
+	--tracker_prefix 'general_model'   # tracker_name
+```
+
+## 5. Acknowledgement
 The code is implemented based on [pysot](https://github.com/STVIR/pysot). We would like to express our sincere thanks to the contributors.
 
-**9. Cite**
 
+## 6. Cite
 If you use SiamCAR in your work please cite our paper:
 > @article{guo2019siamcar,  
           title={SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},  

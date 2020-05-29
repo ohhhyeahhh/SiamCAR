@@ -12,18 +12,17 @@ import cv2
 import torch
 from glob import glob
 
-from siamcar.core.config import cfg
-from siamcar.models.model_builder import ModelBuilder
-from siamcar.tracker.siamcar_tracker import SiamCARTracker
-from siamcar.utils.model_load import load_pretrain
+from pysot.core.config import cfg
+from pysot.models.model_builder import ModelBuilder
+from pysot.tracker.siamcar_tracker import SiamCARTracker
+from pysot.utils.model_load import load_pretrain
 
 torch.set_num_threads(1)
 
 parser = argparse.ArgumentParser(description='SiamCAR demo')
-parser.add_argument('--config', type=str, default='../siamcar/config.yaml', help='config file')
-parser.add_argument('--snapshot', type=str, default='./snapshot/general_model.pth', help='model name')
-parser.add_argument('--video_name', default='../testing_dataset/Biker', type=str, help='videos or image files')
-parser.add_argument('--hp_search', default='OTB', type=str, help='hp_search parameters')
+parser.add_argument('--config', type=str, default='../experiments/siamcar_r50/config.yaml', help='config file')
+parser.add_argument('--snapshot', type=str, default='./snapshot_r50/new_model.pth', help='model name')
+parser.add_argument('--video_name', default='../test_dataset/Biker', type=str, help='videos or image files')
 args = parser.parse_args()
 
 
@@ -50,7 +49,7 @@ def get_frames(video_name):
             else:
                 break
     else:
-        images = glob(os.path.join(video_name, '*.jp*'))
+        images = sorted(glob(os.path.join(video_name, 'img', '*.jp*')))
         for img in images:
             frame = cv2.imread(img)
             yield frame
@@ -71,19 +70,7 @@ def main():
     # build tracker
     tracker = SiamCARTracker(model, cfg.TRACK)
 
-    # hp_search
-    if 'GOT' in args.hp_search:
-        hp = {'lr': cfg.HP_SEARCH.GOT[0], 'pk': cfg.HP_SEARCH.GOT[1], 'w_lr': cfg.HP_SEARCH.GOT[2]}
-    elif 'UAV' in args.hp_search:
-        hp = {'lr': cfg.HP_SEARCH.UAV123[0], 'pk': cfg.HP_SEARCH.UAV123[1], 'w_lr': cfg.HP_SEARCH.UAV123[2]}
-    elif 'OTB' in args.hp_search:
-        hp = {'lr': cfg.HP_SEARCH.OTB[0], 'pk': cfg.HP_SEARCH.OTB[1], 'w_lr': cfg.HP_SEARCH.OTB[2]}
-    elif 'VOT2019' in args.hp_search:
-        hp = {'lr': cfg.HP_SEARCH.VOT2019[0], 'pk': cfg.HP_SEARCH.VOT2019[1], 'w_lr': cfg.HP_SEARCH.VOT2019[2]}
-    elif 'LaSOT' in args.hp_search:
-        hp = {'lr': cfg.HP_SEARCH.LaSOT[0], 'pk': cfg.HP_SEARCH.LaSOT[1], 'w_lr': cfg.HP_SEARCH.LaSOT[2]}
-    else:
-        raise KeyError("Non-existent hp parameters: {}".format(args.hp_search))
+    hp = {'lr': 0.3, 'penalty_k': 0.04, 'window_lr': 0.4}
 
     first_frame = True
     if args.video_name:

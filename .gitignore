@@ -8,6 +8,7 @@ __pycache__/
 
 # model
 *.pth
+*.model
 
 # Distribution / packaging
 .Python
@@ -103,8 +104,9 @@ venv.bak/
 # mkdocs documentation
 /site
 
+##################
 # mypy
-.mypy_cache/
+#.mypy_cache/
 
-testing_dataset/*
-experiments
+#testing_dataset/*
+#experiments
