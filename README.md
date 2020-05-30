@@ -38,7 +38,7 @@ Download the datasets：
 **Note:** `train_dataset/dataset_name/readme.md` has listed detailed operations about how to generate training datasets.
 
 ### Download pretrained backbones
-Different backbone architectures can be used for training, such as ResNet, AlexNet. Download pretrained backbones from [google drive](https://drive.google.com/drive/folders/1DuXVWVYIeynAcvt9uxtkuleV6bs6e3T9) or [BaiduYun](https://pan.baidu.com/s/1IfZoxZNynPdY2UJ_--ZG2w) (code: 7n7d) and put them into `pretrained_models` directory.
+Download pretrained backbones from [google drive](https://drive.google.com/drive/folders/1DuXVWVYIeynAcvt9uxtkuleV6bs6e3T9) or [BaiduYun](https://pan.baidu.com/s/1IfZoxZNynPdY2UJ_--ZG2w) (code: 7n7d) and put them into `pretrained_models` directory.
 
 ### Train a model
 To train the SiamCAR model, run `train.py` with the desired configs:
