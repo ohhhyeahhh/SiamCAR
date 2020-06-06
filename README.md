@@ -49,7 +49,7 @@ python train.py
 ```
 
 ## 4. Evaluation
-We provide the tracking [results](https://pan.baidu.com/s/1C_3MqKtZmLsMPWgqj-F3sg)(code: 71va) of GOT10K, LaSOT, OTB and UAV. If you want to evaluate the tracker, please put those results into  `results` directory.
+We provide the tracking [results](https://pan.baidu.com/s/1C_3MqKtZmLsMPWgqj-F3sg) (code: 71va) of GOT10K, LaSOT, OTB and UAV. If you want to evaluate the tracker, please put those results into  `results` directory.
 ```
 python eval.py 	                          \
 	--tracker_path ./results          \ # result path
