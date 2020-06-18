@@ -73,7 +73,7 @@ class SiamCARTracker(SiameseTracker):
         disp = p_cool_s - (np.array([255, 255]) - 1.) / 2.
         return disp
 
-    def corse_location(self, hp_cls_up, score_up, scale_score, lrtbs):
+    def coarse_location(self, hp_cls_up, score_up, scale_score, lrtbs):
         upsize = (cfg.TRACK.SCORE_SIZE - 1) * cfg.TRACK.STRIDE + 1
         max_r_up_hp, max_c_up_hp = np.unravel_index(hp_cls_up.argmax(), hp_cls_up.shape)
         max_r = int(round(max_r_up_hp / scale_score))
@@ -95,7 +95,7 @@ class SiamCARTracker(SiameseTracker):
 
     def getCenter(self,hp_cls_up,score_up,scale_score,lrtbs):
         # corse location
-        score_up = self.corse_location(hp_cls_up,score_up,scale_score,lrtbs)
+        score_up = self.coarse_location(hp_cls_up,score_up,scale_score,lrtbs)
         # accurate location
         max_r_up, max_c_up = np.unravel_index(score_up.argmax(), score_up.shape)
         disp = self.accurate_location(max_r_up,max_c_up)
