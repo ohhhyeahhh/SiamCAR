@@ -121,7 +121,7 @@ __C.DATASET.SEARCH.FLIP = 0.0
 __C.DATASET.SEARCH.COLOR = 1.0
 
 # for detail discussion
-__C.DATASET.NEG = 0.2
+__C.DATASET.NEG = 0.0
 
 __C.DATASET.GRAY = 0.0
 
