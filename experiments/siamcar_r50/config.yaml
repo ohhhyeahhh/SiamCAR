@@ -75,5 +75,5 @@ DATASET:
         FLIP: 0.0
         COLOR: 1.0
 
-    NEG: 0.2
+    NEG: 0.0
     GRAY: 0.0
