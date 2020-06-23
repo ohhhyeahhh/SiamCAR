@@ -32,7 +32,7 @@ Download the datasets：
 * [YOUTUBEBB](https://github.com/STVIR/pysot/tree/master/training_dataset/yt_bb)  
 * [DET](http://image-net.org/challenges/LSVRC/2017/)
 * [COCO](http://cocodataset.org)
-* [GOT-10K](wangjun)
+* [GOT-10K](http://got-10k.aitestunion.com/downloads)
 * [LaSOT](wangjun)
 
 **Note:** `train_dataset/dataset_name/readme.md` has listed detailed operations about how to generate training datasets.
