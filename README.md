@@ -33,7 +33,7 @@ Download the datasets：
 * [DET](http://image-net.org/challenges/LSVRC/2017/)
 * [COCO](http://cocodataset.org)
 * [GOT-10K](http://got-10k.aitestunion.com/downloads)
-* [LaSOT](wangjun)
+* [LaSOT](https://cis.temple.edu/lasot/)
 
 **Note:** `train_dataset/dataset_name/readme.md` has listed detailed operations about how to generate training datasets.
 
