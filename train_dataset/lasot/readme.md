@@ -3,7 +3,7 @@ Large-scale Single Object Tracking
 
 ### Prepare dataset
 
-After download the dataset, please unzip the dataset at *train_dataset/got10k* directory
+After download the dataset, please unzip the dataset at *train_dataset/lasot* directory
 ````shell
 mkdir data
 unzip LaSOT/zip/*.zip -d ./data
