@@ -13,6 +13,7 @@ import torch
 import numpy as np
 import math
 import sys
+import shutil
 sys.path.append('../')
 
 from pysot.core.config import cfg
@@ -115,6 +116,10 @@ def main():
                 f.write(','.join([str(i) for i in x])+'\n')
         print('({:3d}) Video: {:12s} Time: {:5.1f}s Speed: {:3.1f}fps'.format(
             v_idx+1, video.name, toc, idx / toc))
+    os.chdir(model_path)
+    save_file = '../%s' % dataset
+    shutil.make_archive(save_file, 'zip')
+    print('Records saved at', save_file + '.zip')
 
 
 if __name__ == '__main__':
