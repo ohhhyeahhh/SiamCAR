@@ -63,9 +63,10 @@ The code is implemented based on [pysot](https://github.com/STVIR/pysot). We wou
 
 ## 6. Cite
 If you use SiamCAR in your work please cite our paper:
-> @article{guo2019siamcar,  
-          title={SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},  
-          author={Dongyan Guo and Jun Wang and Ying Cui and Zhenhua Wang and Shengyong Chen},  
-          booktitle={CVPR},  
-          year={2020}  
+> @InProceedings{Guo_2020_CVPR,
+author = {Guo, Dongyan and Wang, Jun and Cui, Ying and Wang, Zhenhua and Chen, Shengyong},
+title = {SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},
+booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2020}
 }
