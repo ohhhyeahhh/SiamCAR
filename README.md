@@ -1,4 +1,4 @@
-# SiamCAR
+# [SiamCAR](https://openaccess.thecvf.com/content_CVPR_2020/html/Guo_SiamCAR_Siamese_Fully_Convolutional_Classification_and_Regression_for_Visual_Tracking_CVPR_2020_paper.html)
 
 ## 1. Environment setup
 This code has been tested on Ubuntu 16.04, Python 3.6, Pytorch 0.4.1/1.2.0, CUDA 9.0.
@@ -64,9 +64,9 @@ The code is implemented based on [pysot](https://github.com/STVIR/pysot). We wou
 ## 6. Cite
 If you use SiamCAR in your work please cite our paper:
 > @InProceedings{Guo_2020_CVPR,  
-author = {Guo, Dongyan and Wang, Jun and Cui, Ying and Wang, Zhenhua and Chen, Shengyong},  
-title = {SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},  
-booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},  
-month = {June},  
-year = {2020}  
+   author = {Guo, Dongyan and Wang, Jun and Cui, Ying and Wang, Zhenhua and Chen, Shengyong},  
+   title = {SiamCAR: Siamese Fully Convolutional Classification and Regression for Visual Tracking},  
+   booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},  
+   month = {June},  
+   year = {2020}  
 }
