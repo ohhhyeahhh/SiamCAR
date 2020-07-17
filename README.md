@@ -29,7 +29,7 @@ The testing result will be saved in the `results/dataset_name/tracker_name` dire
 
 Download the datasets：
 * [VID](http://image-net.org/challenges/LSVRC/2017/)
-* [YOUTUBEBB](https://github.com/STVIR/pysot/tree/master/training_dataset/yt_bb)  
+* [YOUTUBEBB](https://pan.baidu.com/s/1gQKmi7o7HCw954JriLXYvg) (code: v7s6)
 * [DET](http://image-net.org/challenges/LSVRC/2017/)
 * [COCO](http://cocodataset.org)
 * [GOT-10K](http://got-10k.aitestunion.com/downloads)
