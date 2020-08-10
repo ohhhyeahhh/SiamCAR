@@ -99,6 +99,8 @@ def build_opt_lr(model, current_epoch=0):
     trainable_params += [{'params': model.car_head.parameters(),
                           'lr': cfg.TRAIN.BASE_LR}]
 
+    trainable_params += [{'params': model.down.parameters(),
+                          'lr': cfg.TRAIN.BASE_LR}]
     optimizer = torch.optim.SGD(trainable_params,
                                 momentum=cfg.TRAIN.MOMENTUM,
                                 weight_decay=cfg.TRAIN.WEIGHT_DECAY)
