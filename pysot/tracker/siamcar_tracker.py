@@ -70,12 +70,12 @@ class SiamCARTracker(SiameseTracker):
         max_r_up += dist
         max_c_up += dist
         p_cool_s = np.array([max_r_up, max_c_up])
-        disp = p_cool_s - (np.array([255, 255]) - 1.) / 2.
+        disp = p_cool_s - (np.array([cfg.TRACK.INSTANCE_SIZE, cfg.TRACK.INSTANCE_SIZE]) - 1.) / 2.
         return disp
 
-    def coarse_location(self, hp_cls_up, score_up, scale_score, lrtbs):
+    def coarse_location(self, hp_score_up, p_score_up, scale_score, lrtbs):
         upsize = (cfg.TRACK.SCORE_SIZE - 1) * cfg.TRACK.STRIDE + 1
-        max_r_up_hp, max_c_up_hp = np.unravel_index(hp_cls_up.argmax(), hp_cls_up.shape)
+        max_r_up_hp, max_c_up_hp = np.unravel_index(hp_score_up.argmax(), hp_score_up.shape)
         max_r = int(round(max_r_up_hp / scale_score))
         max_c = int(round(max_c_up_hp / scale_score))
         max_r = bbox_clip(max_r, 0, cfg.TRACK.SCORE_SIZE)
@@ -83,19 +83,19 @@ class SiamCARTracker(SiameseTracker):
         bbox_region = lrtbs[max_r, max_c, :]
         min_bbox = int(cfg.TRACK.REGION_S * cfg.TRACK.EXEMPLAR_SIZE)
         max_bbox = int(cfg.TRACK.REGION_L * cfg.TRACK.EXEMPLAR_SIZE)
-        l_region = int(min(max_r_up_hp, bbox_clip(bbox_region[0], min_bbox, max_bbox)))
-        t_region = int(min(max_c_up_hp, bbox_clip(bbox_region[1], min_bbox, max_bbox)))
+        l_region = int(min(max_c_up_hp, bbox_clip(bbox_region[0], min_bbox, max_bbox)) / 2.0)
+        t_region = int(min(max_r_up_hp, bbox_clip(bbox_region[1], min_bbox, max_bbox)) / 2.0)
 
-        r_region = int(min(upsize - max_r_up_hp, bbox_clip(bbox_region[2], min_bbox, max_bbox)))
-        b_region = int(min(upsize - max_c_up_hp, bbox_clip(bbox_region[3], min_bbox, max_bbox)))
-        mask = np.zeros_like(score_up)
-        mask[max_r_up_hp - l_region:max_r_up_hp + r_region + 1, max_c_up_hp - t_region:max_c_up_hp + b_region + 1] = 1
-        score_up = score_up * mask
-        return score_up
+        r_region = int(min(upsize - max_c_up_hp, bbox_clip(bbox_region[2], min_bbox, max_bbox)) / 2.0)
+        b_region = int(min(upsize - max_r_up_hp, bbox_clip(bbox_region[3], min_bbox, max_bbox)) / 2.0)
+        mask = np.zeros_like(p_score_up)
+        mask[max_r_up_hp - t_region:max_r_up_hp + b_region + 1, max_c_up_hp - l_region:max_c_up_hp + r_region + 1] = 1
+        p_score_up = p_score_up * mask
+        return p_score_up
 
-    def getCenter(self,hp_cls_up,score_up,scale_score,lrtbs):
+    def getCenter(self,hp_score_up, p_score_up, scale_score,lrtbs):
         # corse location
-        score_up = self.coarse_location(hp_cls_up,score_up,scale_score,lrtbs)
+        score_up = self.coarse_location(hp_score_up, p_score_up, scale_score, lrtbs)
         # accurate location
         max_r_up, max_c_up = np.unravel_index(score_up.argmax(), score_up.shape)
         disp = self.accurate_location(max_r_up,max_c_up)
@@ -122,29 +122,28 @@ class SiamCARTracker(SiameseTracker):
 
         outputs = self.model.track(x_crop)
         cls = self._convert_cls(outputs['cls']).squeeze()
-        cen = outputs['cen'].data.cpu().numpy().squeeze()
+        cen = outputs['cen'].data.cpu().numpy()
+        cen = (cen - cen.min()) / cen.ptp()
+        cen = cen.squeeze()
         lrtbs = outputs['loc'].data.cpu().numpy().squeeze()
 
-        upsize = (cfg.TRACK.SCORE_SIZE-1)*cfg.TRACK.STRIDE+1
+        upsize = (cfg.TRACK.SCORE_SIZE-1) * cfg.TRACK.STRIDE + 1
         penalty = self.cal_penalty(lrtbs, hp['penalty_k'])
-        p_cls = penalty * cls
+        p_score = penalty * cls * cen
         if cfg.TRACK.hanming:
-            hp_cls = p_cls*(1 - hp['window_lr']) + self.window * hp['window_lr']
+            hp_score = p_score*(1 - hp['window_lr']) + self.window * hp['window_lr']
         else:
-            hp_cls = p_cls
+            hp_score = p_score
 
-        hp_cls_up = cv2.resize(hp_cls, (upsize, upsize), interpolation=cv2.INTER_CUBIC)
+        hp_score_up = cv2.resize(hp_score, (upsize, upsize), interpolation=cv2.INTER_CUBIC)
+        p_score_up = cv2.resize(p_score, (upsize, upsize), interpolation=cv2.INTER_CUBIC)
         cls_up = cv2.resize(cls, (upsize, upsize), interpolation=cv2.INTER_CUBIC)
-        cen_up = cv2.resize(cen, (upsize, upsize), interpolation=cv2.INTER_CUBIC)
         lrtbs = np.transpose(lrtbs,(1,2,0))
         lrtbs_up = cv2.resize(lrtbs, (upsize, upsize), interpolation=cv2.INTER_CUBIC)
 
         scale_score = upsize / cfg.TRACK.SCORE_SIZE
-        score_up = cls_up * cen_up
-
         # get center
-        max_r_up, max_c_up, new_cx, new_cy = self.getCenter(hp_cls_up,score_up,scale_score,lrtbs)
-
+        max_r_up, max_c_up, new_cx, new_cy = self.getCenter(hp_score_up, p_score_up, scale_score, lrtbs)
         # get w h
         ave_w = (lrtbs_up[max_r_up,max_c_up,0] + lrtbs_up[max_r_up,max_c_up,2]) / self.scale_z
         ave_h = (lrtbs_up[max_r_up,max_c_up,1] + lrtbs_up[max_r_up,max_c_up,3]) / self.scale_z
