@@ -12,7 +12,7 @@ Download the pretrained model:
 [general_model](https://pan.baidu.com/s/1ZW61I7tCe2KTaTwWzaxy0w) code: lw7w  
 [got10k_model](https://pan.baidu.com/s/1KSVgaz5KYP2Ar2DptnfyGQ) code: p4zx  
 [LaSOT_model](https://pan.baidu.com/s/1g15wGSq-LoZUBxYQwXCP6w) code: 6wer  
-(The model in [google Driver](https://drive.google.com/drive/folders/1i-Ar4NbJauOo7SIqPVhDsLxJSc3s3-zB?usp=sharing))
+(The model in [google Driver](https://drive.google.com/drive/folders/1ud0iF4Vm96TfxOddUHV1LoY-soF2zk8b?usp=sharing))
  and put them into `tools/snapshot` directory.
 
 Download testing datasets and put them into `test_dataset` directory. Jsons of commonly used datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1js0Qhykqqur7_lNRtle1tA#list/path=%2F). If you want to test the tracker on a new dataset, please refer to [pysot-toolkit](https://github.com/StrangerZhang/pysot-toolkit) to set test_dataset.
@@ -50,7 +50,7 @@ python train.py
 ```
 
 ## 4. Evaluation
-We provide the tracking [results](https://pan.baidu.com/s/1z3bwLcxIsg8u_ZAZPlbEVw) (code: 8c7b) (results in [google driver](https://drive.google.com/drive/folders/1ud0iF4Vm96TfxOddUHV1LoY-soF2zk8b?usp=sharing) )of GOT10K, LaSOT, OTB and UAV. If you want to evaluate the tracker, please put those results into  `results` directory.
+We provide the tracking [results](https://pan.baidu.com/s/1z3bwLcxIsg8u_ZAZPlbEVw) (code: 8c7b) (results in [google driver](https://drive.google.com/drive/folders/1i-Ar4NbJauOo7SIqPVhDsLxJSc3s3-zB?usp=sharing) )of GOT10K, LaSOT, OTB and UAV. If you want to evaluate the tracker, please put those results into  `results` directory.
 
 ```
 python eval.py 	                          \
