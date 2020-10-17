@@ -12,6 +12,7 @@ Download the pretrained model:
 [general_model](https://pan.baidu.com/s/1ZW61I7tCe2KTaTwWzaxy0w) code: lw7w  
 [got10k_model](https://pan.baidu.com/s/1KSVgaz5KYP2Ar2DptnfyGQ) code: p4zx  
 [LaSOT_model](https://pan.baidu.com/s/1g15wGSq-LoZUBxYQwXCP6w) code: 6wer  
+You can download all the model from [google Driver](https://drive.google.com/drive/folders/1i-Ar4NbJauOo7SIqPVhDsLxJSc3s3-zB?usp=sharing)
  and put them into `tools/snapshot` directory.
 
 Download testing datasets and put them into `test_dataset` directory. Jsons of commonly used datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1js0Qhykqqur7_lNRtle1tA#list/path=%2F). If you want to test the tracker on a new dataset, please refer to [pysot-toolkit](https://github.com/StrangerZhang/pysot-toolkit) to set test_dataset.
@@ -38,7 +39,7 @@ Download the datasets：
 **Note:** `train_dataset/dataset_name/readme.md` has listed detailed operations about how to generate training datasets.
 
 ### Download pretrained backbones
-Download pretrained backbones from [google drive](https://drive.google.com/drive/folders/1DuXVWVYIeynAcvt9uxtkuleV6bs6e3T9) or [BaiduYun](https://pan.baidu.com/s/1IfZoxZNynPdY2UJ_--ZG2w) (code: 7n7d) and put them into `pretrained_models` directory.
+Download pretrained backbones from [google driver](https://drive.google.com/drive/folders/1DuXVWVYIeynAcvt9uxtkuleV6bs6e3T9) or [BaiduYun](https://pan.baidu.com/s/1IfZoxZNynPdY2UJ_--ZG2w) (code: 7n7d) and put them into `pretrained_models` directory.
 
 ### Train a model
 To train the SiamCAR model, run `train.py` with the desired configs:
@@ -50,6 +51,8 @@ python train.py
 
 ## 4. Evaluation
 We provide the tracking [results](https://pan.baidu.com/s/1z3bwLcxIsg8u_ZAZPlbEVw) (code: 8c7b) of GOT10K, LaSOT, OTB and UAV. If you want to evaluate the tracker, please put those results into  `results` directory.
+
+The tracking results in [google driver](https://drive.google.com/drive/folders/1ud0iF4Vm96TfxOddUHV1LoY-soF2zk8b?usp=sharing) 
 ```
 python eval.py 	                          \
 	--tracker_path ./results          \ # result path
