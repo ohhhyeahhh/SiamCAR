@@ -72,3 +72,11 @@ If you use SiamCAR in your work please cite our paper:
    month = {June},  
    year = {2020}  
 }
+
+> @InProceedings{Guo_2021_CVPR,  
+  author = {Guo, Dongyan and Shao, Yanyan and Cui, Ying and Wang, Zhenhua and Zhang, Liyan and Shen, Chunhua},  
+  title = {Graph Attention Tracking},  
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},  
+  month = {June},  
+  year = {2021}  
+}
