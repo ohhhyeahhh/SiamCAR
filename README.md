@@ -63,11 +63,11 @@ pip install -r requirements.txt
         <td>42.3</td>
     </tr>
     <tr>
-        <td>R</td>
+        <td>Robustness</td>
         <td>19.7</td>
     </tr>
     <tr>
-        <td>A</td>
+        <td>Accuracy</td>
         <td>57.4</td>
     </tr>
     <tr>
