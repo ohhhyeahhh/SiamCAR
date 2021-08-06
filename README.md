@@ -8,6 +8,82 @@ pip install -r requirements.txt
 ```
 
 ## 2. Test
+<table>
+    <tr>
+        <td colspan="2" align=center> Dataset</td>
+        <td align=center>SiamCAR</td>
+    </tr>
+    <tr>
+        <td rowspan="2" align=center>OTB100</td>
+        <td>Success</td>
+        <td>70.0</td>
+    </tr>
+    <tr>
+        <td>Precision</td>
+        <td>91.4</td>
+    </tr>
+    <tr>
+        <td rowspan="2" align=center>UAV123</td>
+        <td>Success</td>
+        <td>64.0</td>
+    </tr>
+    <tr>
+        <td>Precision</td>
+        <td>83.9</td>
+    </tr>
+    <tr>
+        <td rowspan="3" align=center>LaSOT</td>
+        <td>Success</td>
+        <td>51.6</td>
+    </tr>
+    <tr>
+        <td>Norm precision</td>
+        <td>61.0</td>
+    </tr>
+    <tr>
+        <td>Precision</td>
+        <td>52.4</td>
+    </tr>
+    <tr>
+        <td rowspan="3" align=center>GOT10k</td>
+        <td>AO</td>
+        <td>58.1</td>
+    </tr>
+    <tr>
+        <td>SR0.5</td>
+        <td>68.3</td>
+    </tr>
+    <tr>
+        <td>SR0.75</td>
+        <td>44.1</td>
+    </tr>
+        <tr>
+        <td rowspan="3" align=center>VOT2018</td>
+        <td>EAO</td>
+        <td>42.3</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>19.7</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>57.4</td>
+    </tr>
+    <tr>
+        <td rowspan="3" align=center>TrackingNet</td>
+        <td>Success</td>
+        <td>74.0</td>
+    </tr>
+    <tr>
+        <td>Norm precision</td>
+        <td>80.4</td>
+    </tr>
+    <tr>
+        <td>Precision</td>
+        <td>68.4</td>
+    </tr>
+</table>
 Download the pretrained model:  
 [general_model](https://pan.baidu.com/s/1ZW61I7tCe2KTaTwWzaxy0w) code: lw7w  
 [got10k_model](https://pan.baidu.com/s/1KSVgaz5KYP2Ar2DptnfyGQ) code: p4zx  
