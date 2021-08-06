@@ -84,6 +84,7 @@ pip install -r requirements.txt
         <td>68.4</td>
     </tr>
 </table>
+
 Download the pretrained model:  
 [general_model](https://pan.baidu.com/s/1ZW61I7tCe2KTaTwWzaxy0w) code: lw7w  
 [got10k_model](https://pan.baidu.com/s/1KSVgaz5KYP2Ar2DptnfyGQ) code: p4zx  
