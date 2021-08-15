@@ -140,7 +140,7 @@ python train.py
 ```
 
 ## 4. Evaluation
-We provide the tracking [results](https://pan.baidu.com/s/1DXiDDJiH6HGpVgJ1W00pGA) (code: badq) (results in [google driver](https://drive.google.com/drive/folders/1qAIge3ekpEIFbMHdJvTIxMlgdnilw5ab?usp=sharing) )of GOT10K, LaSOT, OTB, UAV, VOT2018 and TrackingNet. If you want to evaluate the tracker, please put those results into  `results` directory.
+We provide the tracking [results](https://pan.baidu.com/s/1r2NBU3wLAwiGU7mdV_Zx7w) (code: 4er6) (results in [google driver](https://drive.google.com/drive/folders/1qAIge3ekpEIFbMHdJvTIxMlgdnilw5ab?usp=sharing) )of GOT10K, LaSOT, OTB, UAV, VOT2018 and TrackingNet. If you want to evaluate the tracker, please put those results into  `results` directory.
 
 ```
 python eval.py 	                          \
