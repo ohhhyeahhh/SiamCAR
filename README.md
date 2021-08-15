@@ -71,6 +71,19 @@ pip install -r requirements.txt
         <td>57.4</td>
     </tr>
     <tr>
+        <td rowspan="3" align=center>VOT2020</td>
+        <td>EAO</td>
+        <td>27.3</td>
+    </tr>
+    <tr>
+        <td>Robustness</td>
+        <td>73.2</td>
+    </tr>
+    <tr>
+        <td>Accuracy</td>
+        <td>44.9</td>
+    </tr>
+    <tr>
         <td rowspan="3" align=center>TrackingNet</td>
         <td>Success</td>
         <td>74.0</td>
