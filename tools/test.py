@@ -29,7 +29,7 @@ parser = argparse.ArgumentParser(description='siamcar tracking')
 parser.add_argument('--video', default='', type=str,
         help='eval one special video')
 parser.add_argument('--dataset', type=str, default='UAV123',
-        help='datasets')#OTB50 LaSOT UAV123 GOT-10k
+        help='datasets')#OTB100 LaSOT UAV123 GOT-10k
 parser.add_argument('--vis', action='store_true',default=False,
         help='whether visualzie result')
 parser.add_argument('--snapshot', type=str, default='snapshot/checkpoint_e20.pth',
