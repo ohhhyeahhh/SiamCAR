@@ -101,9 +101,12 @@ class SubDataset(object):
             pick += lists
         return pick[:self.num_use]
 
-    def get_image_anno(self, video, track, frame):
+    def get_image_anno(self, video, track, frame, image_type='x'):
         frame = "{:06d}".format(frame)
         image_path = os.path.join(self.root, video,
+                                  self.path_format.format(frame, track, image_type))
+        if not os.path.exists(image_path):
+            image_path = os.path.join(self.root, video,
                                   self.path_format.format(frame, track, 'x'))
         image_anno = self.labels[video][track][frame]
         return image_path, image_anno
@@ -121,10 +124,10 @@ class SubDataset(object):
         search_range = frames[left:right]
         template_frame = frames[template_frame]
         search_frame = np.random.choice(search_range)
-        return self.get_image_anno(video_name, track, template_frame), \
-            self.get_image_anno(video_name, track, search_frame)
+        return self.get_image_anno(video_name, track, template_frame, image_type='z'), \
+            self.get_image_anno(video_name, track, search_frame, image_type='x')
 
-    def get_random_target(self, index=-1):
+    def get_random_target(self, index=-1, image_type='x'):
         if index == -1:
             index = np.random.randint(0, self.num)
         video_name = self.videos[index]
@@ -133,7 +136,7 @@ class SubDataset(object):
         track_info = video[track]
         frames = track_info['frames']
         frame = np.random.choice(frames)
-        return self.get_image_anno(video_name, track, frame)
+        return self.get_image_anno(video_name, track, frame, image_type)
 
     def __len__(self):
         return self.num
@@ -233,8 +236,8 @@ class TrkDataset(Dataset):
 
         # get one dataset
         if neg:
-            template = dataset.get_random_target(index)
-            search = np.random.choice(self.all_dataset).get_random_target()
+            template = dataset.get_random_target(index, image_type='z')
+            search = np.random.choice(self.all_dataset).get_random_target(image_type='x')
         else:
             template, search = dataset.get_positive_pair(index)
 
